@@ -1,0 +1,29 @@
+{% extends 'layout_01_base.html' %}
+
+
+{% block content %}
+  <div>
+    This is the new Article form
+  </div>
+  <form class="site-form" action="{% url 'articles:create' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label for="title"> title
+      {{ form.title}}
+    </label>
+    <br>
+    <label for="slug">slug
+      {{ form.slug}}
+    </label>
+    <br>
+    <label for="body">
+      {{ form.body}}
+    </label>
+    <br>
+    <label for="tumbnail">thumbnail
+      {{ form.thumbnail }}
+    </label>
+    <br>
+    <input type="submit" value="submit">
+  </form>
+  <script src="/static/slugs.js"></script>
+{% endblock %}
